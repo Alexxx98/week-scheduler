@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import LoginForm from './LoginForm/LoginForm.jsx';
 
 function App() {
 
   return (
     <>
+      <LoginForm />
     </>
   )
 }

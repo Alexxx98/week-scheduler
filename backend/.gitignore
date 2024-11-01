@@ -1,6 +1,4 @@
-ws_env
-
-.env
-
 __pycache__
 *.pyc
+
+ws_env
