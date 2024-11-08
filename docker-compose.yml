@@ -1,0 +1,50 @@
+version: '3'
+
+networks:
+  db-net:
+  backend-net:
+  frontend-net:
+
+  services:
+    db:
+      image: postgres:17-alpine
+      ports:
+        - 5432:5432
+      volumes:
+        - db-data:/var/lib/postgresql/data
+      env_file:
+        - postgres.env
+      networks:
+        - db-net
+
+    backend:
+      build: ./backend
+      ports:
+        - 8082:8082
+      depends_on:
+        - db
+      networks:
+        - db-net
+        - backend-net
+
+    frontend:
+      build: ./frontend
+      ports:
+        - 3001:3001
+      depends_on:
+        - backend
+      networks: frontend-net
+
+    nginx:
+      build: ./nginx
+      ports:
+        - 83:83
+      depends_on:
+        - backend
+        - frontend
+      networks:
+        - backend-net
+        - frontend-net
+
+volumes:
+  db_data:
