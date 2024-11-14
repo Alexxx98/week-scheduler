@@ -1,7 +1,5 @@
-FROM nginx:1.27.2-alpine
+FROM nginx:1.27.2
 
 COPY default.conf /etc/nginx/default.conf
 
-EXPOSE 83
-
-CMD ["nginx", "-g", "deamon off;"]
+CMD ["nginx", "-g", "daemon off;"]
