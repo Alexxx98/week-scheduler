@@ -2,25 +2,37 @@ $primary-color: hsl(34, 3%, 53%);
 
 #input-container {
     position: relative;
+    display: flex;
+    align-items: center;
+    padding: 10px;
 
     label {
         position: absolute;
         color: $primary-color;
-        padding: 5px;
+        padding: 2px;
+        left: 5%;
+        background-color: white;
+        transition: 0.5s ease;
     }
 
     input {
         color: black;
         font-size: 1.25rem;
-        height: 2rem;
+        padding: 5px;
+        height: 2.5rem;
         background-color: white;
         border: 1px solid $primary-color;
         border-radius: 10px;
-        text-align: center;
         outline: 0;
+
     }
 
-    input:focus+label {
-        transform: translateY(-20%);
+    &:focus-within label {
+        transform: translateY(-110%) scale(0.9);
     }
+
+}
+
+.has-text {
+    transform: translateY(-110%) scale(0.9);
 }
