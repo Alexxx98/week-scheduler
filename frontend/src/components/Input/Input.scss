@@ -1,0 +1,26 @@
+$primary-color: hsl(34, 3%, 53%);
+
+#input-container {
+    position: relative;
+
+    label {
+        position: absolute;
+        color: $primary-color;
+        padding: 5px;
+    }
+
+    input {
+        color: black;
+        font-size: 1.25rem;
+        height: 2rem;
+        background-color: white;
+        border: 1px solid $primary-color;
+        border-radius: 10px;
+        text-align: center;
+        outline: 0;
+    }
+
+    input:focus+label {
+        transform: translateY(-20%);
+    }
+}

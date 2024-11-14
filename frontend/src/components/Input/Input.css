@@ -1,0 +1,23 @@
+#input-container {
+  position: relative;
+}
+#input-container label {
+  position: absolute;
+  color: hsl(34, 3%, 53%);
+  padding: 5px;
+}
+#input-container input {
+  color: black;
+  font-size: 1.25rem;
+  height: 2rem;
+  background-color: white;
+  border: 1px solid hsl(34, 3%, 53%);
+  border-radius: 10px;
+  text-align: center;
+  outline: 0;
+}
+#input-container input:focus + label {
+  transform: translateY(-20%);
+}
+
+/*# sourceMappingURL=Input.css.map */
