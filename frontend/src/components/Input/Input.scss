@@ -16,6 +16,7 @@ $primary-color: hsl(34, 3%, 53%);
     }
 
     input {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: black;
         font-size: 1.25rem;
         padding: 5px;
@@ -24,7 +25,12 @@ $primary-color: hsl(34, 3%, 53%);
         border: 1px solid $primary-color;
         border-radius: 10px;
         outline: 0;
+        transition: 0.5s ease-out;
 
+    }
+
+    input:focus {
+        box-shadow: 0px 5px 5px $primary-color;
     }
 
     &:focus-within label {
