@@ -1,4 +1,5 @@
 $primary-color: hsl(34, 3%, 53%);
+$logo-color: rgb(197, 209, 196);
 
 @keyframes slideInFromTop {
     0% {
@@ -52,4 +53,16 @@ $primary-color: hsl(34, 3%, 53%);
         max-width: fit-content;
     }
 
+}
+
+.link-container {
+    border-top: 1px solid $primary-color;
+    margin-top: 10px;
+    padding-top: 10px;
+    color: $logo-color;
+}
+
+.custom-link {
+    color: $logo-color;
+    font-size: 1.2rem;
 }

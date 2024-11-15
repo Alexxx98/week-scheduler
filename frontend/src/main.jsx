@@ -10,7 +10,7 @@ import RegisterPage from './pages/RegisterPage/RegisterPage.jsx'
 const router = createBrowserRouter([
   {
     path: '/login',
-    element: <LoginPage />
+    element: <LoginPage />,
   },
   {
     path: '/register',
@@ -18,7 +18,8 @@ const router = createBrowserRouter([
   },
   {
     path: '/',
-    element: <App />
+    element: <App />,
+    errorElement: <div>404 Page not found</div>,
   }
 
 ])
