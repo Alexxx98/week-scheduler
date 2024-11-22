@@ -65,6 +65,10 @@ MIDDLEWARE = [
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+    },
+    'DEFAULT_PERMISSION_CLASSES': {
+        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AloowAny',
     }
 }
 
@@ -99,7 +103,7 @@ DATABASES = {
         'USER': os.getenv('DB_USER'),
         'PASSWORD': os.getenv('DB_PASSWORD'),
         'HOST': 'db',
-        'PORT': '5433',
+        'PORT': '5432',
     }
 }
 

@@ -1,6 +1,13 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from rest_framework.decorators import api_view, authentication_classes
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+
+from .models import Task
+from .serializers import TaskSerializer
 
 
-def home(reqest):
-    return render(HttpResponse('<h1>Week Scheduler</h1>'))
+@api_view(['POST'])
+@authentication_classes([IsAuthenticated])
+def create_task(request):
+    task = request.data
+    serializer = TaskSerializer(task)
