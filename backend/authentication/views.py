@@ -15,3 +15,9 @@ def regiter(request):
         serializer.save()
         return Response(serializer.data)
     return Response(serializer.error)
+
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def authenticate(request):
+    ...
