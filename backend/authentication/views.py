@@ -10,7 +10,8 @@ from .serializers import CustomUserSerializer, CustomUserRegistrationSerializer
 @permission_classes([AllowAny])
 def register(request):
     user_data = request.data
-    serializer = CustomUserRegistrationSerializer(user_data)
+    print(user_data)
+    serializer = CustomUserRegistrationSerializer(data=user_data)
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data)
