@@ -8,7 +8,7 @@ from .serializers import CustomUserSerializer, CustomUserRegistrationSerializer
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
-def regiter(request):
+def register(request):
     user_data = request.data
     serializer = CustomUserRegistrationSerializer(user_data)
     if serializer.is_valid():
@@ -19,5 +19,5 @@ def regiter(request):
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
-def authenticate(request):
+def login(request):
     ...

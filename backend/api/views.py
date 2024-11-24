@@ -32,10 +32,15 @@ def get_task(request, id):
     return Response(serializer.data)
 
 
-@api_view(['PUT'])
+@api_view(['PUT', 'PATCH'])
 @permission_classes([IsAuthenticated])
 def update_task(request, id):
     task = Task.objects.get(pk=id)
+    serializer = TaskSerializer(task, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data)
+    return Response(serializer.error_messages)
 
 
 @api_view(['DELETE'])
