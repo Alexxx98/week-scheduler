@@ -5,8 +5,12 @@ import ConfirmButton from '../../components/ConfirmButton/ConfirmButton.jsx'
 import './LoginPage.css'
 
 function LoginPage() {
-    const [name, setName] = useState('');
+    const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
+
+    function login() {
+        return
+    }
 
     return (
         <>
@@ -16,10 +20,10 @@ function LoginPage() {
                     <h2>Login Form</h2>
 
                     <Input
-                        name="Name:"
+                        name="Username:"
                         type="text"
-                        value={name}
-                        function={(event) => setName(event.target.value)}
+                        value={userName}
+                        function={(event) => setUserName(event.target.value)}
                     />
                     <Input
                         name="Password:"
@@ -27,7 +31,7 @@ function LoginPage() {
                         value={password}
                         function={(event) => setPassword(event.target.value)}
                     />
-                    <ConfirmButton text="Login" />
+                    <ConfirmButton text="Login" type="submit" func={login} />
 
                     <div className="link-container">
                         <Link className="custom-link" to='/register'>Don't have account yet? Sign in here.</Link>

@@ -31,7 +31,7 @@ $logo-color: rgb(197, 209, 196);
 }
 
 #login-form {
-    padding: 20px 30px;
+    padding: 1.5rem 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,10 +43,12 @@ $logo-color: rgb(197, 209, 196);
     h2 {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 2.5rem;
+        text-align: center;
     }
 
     input {
-        max-width: fit-content;
+        max-width: 578px;
+        width: 80vw;
     }
 
     button {

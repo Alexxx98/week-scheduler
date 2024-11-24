@@ -2,7 +2,7 @@ import './ConfirmButton.css'
 
 function ConfirmButton(props) {
     return (
-        <button>{props.text}</button>
+        <button type={props.type} onClick={props.func}>{props.text}</button>
     )
 }
 

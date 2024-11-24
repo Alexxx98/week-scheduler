@@ -1,13 +1,40 @@
+import axios from 'axios'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Input from '../../components/Input/Input.jsx'
 import ConfirmButton from '../../components/ConfirmButton/ConfirmButton.jsx'
 import '../LoginPage/LoginPage.css'
 
 function RegisterPage() {
     const [email, setEmail] = useState('')
-    const [name, setName] = useState('')
+    const [username, setUserName] = useState('')
     const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
+
+    const navigate = useNavigate();
+
+    function register() {
+
+        const data = {
+            'email': email,
+            'username': username,
+            'password': password,
+        }
+
+        if (password !== confirmPassword) {
+            return alert('Passwords do not match')
+        }
+
+        axios.post('http://127.0.0.1:8000/auth/register/', data)
+            .then(function (response) {
+                console.log(response);
+                navigate('/login');
+                alert('User Registered successfuly');
+            })
+            .catch(function (error) {
+                alert(error)
+            })
+    }
 
     return (
         <>
@@ -22,10 +49,10 @@ function RegisterPage() {
                         function={(event) => setEmail(event.target.value)}
                     />
                     <Input
-                        name="Name:"
+                        name="Username:"
                         type="text"
-                        value={name}
-                        function={(event) => setName(event.target.value)}
+                        value={username}
+                        function={(event) => setUserName(event.target.value)}
                     />
                     <Input
                         name="Password:"
@@ -33,7 +60,15 @@ function RegisterPage() {
                         value={password}
                         function={(event) => setPassword(event.target.value)}
                     />
-                    <ConfirmButton text="Sign in" />
+
+                    <Input
+                        name="Confirm Password:"
+                        type="password"
+                        value={confirmPassword}
+                        function={(event) => setConfirmPassword(event.target.value)}
+                    />
+
+                    <ConfirmButton text="Sign in" type="submit" func={register} />
 
                     <div className="link-container">
                         <Link className="custom-link" to='/login'>Back to Login Page.</Link>
