@@ -14,6 +14,7 @@ import os
 
 from pathlib import Path
 from dotenv import load_dotenv
+from datetime import timedelta
 
 
 load_dotenv()
@@ -70,6 +71,13 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ]
 }
+
+# JWT options
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+}
+
 
 ROOT_URLCONF = 'backend.urls'
 
@@ -158,6 +166,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_METHODS = ('GET', 'POST', 'DELETE', 'PATCH', 'PUT', 'OPTIONS')
+CORS_ALLOW_METHODS = ('GET', 'POST', 'DELETE', 'PATCH', 'PUT')
 
 AUTH_USER_MODEL = 'authentication.CustomUser'

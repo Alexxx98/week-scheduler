@@ -29,7 +29,7 @@ function RegisterPage() {
             .then(function (response) {
                 console.log(response);
                 navigate('/login');
-                alert('User Registered successfuly');
+                alert('User Registered successfully');
             })
             .catch(function (error) {
                 alert(error)
@@ -42,34 +42,36 @@ function RegisterPage() {
                 <div id="login-form">
                     <img src="/AppLogo.png" alt="AppLogo" />
                     <h2>Registration Form</h2>
-                    <Input
-                        name="Email:"
-                        type="email"
-                        value={email}
-                        function={(event) => setEmail(event.target.value)}
-                    />
-                    <Input
-                        name="Username:"
-                        type="text"
-                        value={username}
-                        function={(event) => setUserName(event.target.value)}
-                    />
-                    <Input
-                        name="Password:"
-                        type="password"
-                        value={password}
-                        function={(event) => setPassword(event.target.value)}
-                    />
+                    <form action="post">
+                        <Input
+                            name="Email:"
+                            type="email"
+                            value={email}
+                            function={(event) => setEmail(event.target.value)}
+                        />
+                        <Input
+                            name="Username:"
+                            type="text"
+                            value={username}
+                            function={(event) => setUserName(event.target.value)}
+                        />
+                        <Input
+                            name="Password:"
+                            type="password"
+                            value={password}
+                            function={(event) => setPassword(event.target.value)}
+                        />
 
-                    <Input
-                        name="Confirm Password:"
-                        type="password"
-                        value={confirmPassword}
-                        function={(event) => setConfirmPassword(event.target.value)}
-                    />
+                        <Input
+                            name="Confirm Password:"
+                            type="password"
+                            value={confirmPassword}
+                            function={(event) => setConfirmPassword(event.target.value)}
+                        />
 
-                    <ConfirmButton text="Sign in" type="submit" func={register} />
+                        <ConfirmButton text="Sign in" type="submit" func={register} />
 
+                    </form>
                     <div className="link-container">
                         <Link className="custom-link" to='/login'>Back to Login Page.</Link>
                     </div>

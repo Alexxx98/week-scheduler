@@ -18,21 +18,21 @@ function LoginPage() {
                 <div id="login-form">
                     <img src="/AppLogo.png" alt="AppLogo" />
                     <h2>Login Form</h2>
-
-                    <Input
-                        name="Username:"
-                        type="text"
-                        value={userName}
-                        function={(event) => setUserName(event.target.value)}
-                    />
-                    <Input
-                        name="Password:"
-                        type="password"
-                        value={password}
-                        function={(event) => setPassword(event.target.value)}
-                    />
-                    <ConfirmButton text="Login" type="submit" func={login} />
-
+                    <form action="post">
+                        <Input
+                            name="Username:"
+                            type="text"
+                            value={userName}
+                            function={(event) => setUserName(event.target.value)}
+                        />
+                        <Input
+                            name="Password:"
+                            type="password"
+                            value={password}
+                            function={(event) => setPassword(event.target.value)}
+                        />
+                        <ConfirmButton text="Login" type="submit" func={login} />
+                    </form>
                     <div className="link-container">
                         <Link className="custom-link" to='/register'>Don't have account yet? Sign in here.</Link>
                     </div>
